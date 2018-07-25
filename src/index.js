@@ -24,12 +24,20 @@ class Form extends React.Component {
 }
 
 class Login extends React.Component {
+  renderHeader() {
+    return (
+      <div>
+        <i>test method</i>
+      </div>
+    );
+  }
   render() {
     return (
       <div>
         <h1> {this.props.description}</h1>
         <Form action="Authentication" name="Check User" />
         <Form action="View Profile" name="View User" />
+        <this.renderHeader />
       </div>
     );
   }
