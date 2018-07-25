@@ -12,6 +12,11 @@ function App() {
   );
 }
 
+const divMemo = {
+  color: "blue",
+  padding: "5px"
+};
+
 class Form extends React.Component {
   render() {
     return (
@@ -24,9 +29,14 @@ class Form extends React.Component {
 }
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { des: 100000 };
+  }
+
   renderHeader() {
     return (
-      <div>
+      <div style={divMemo}>
         <i>test method</i>
       </div>
     );
@@ -38,6 +48,7 @@ class Login extends React.Component {
         <Form action="Authentication" name="Check User" />
         <Form action="View Profile" name="View User" />
         <this.renderHeader />
+        <p>State value : {this.state.des} </p>
       </div>
     );
   }
