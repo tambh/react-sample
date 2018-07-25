@@ -28,7 +28,15 @@ class Form extends React.Component {
 
   handleClick() {
     alert(this.props.message);
-    console.log("this is:", this.props.name);
+    console.log("this is:", this);
+  }
+
+  deleteRow(id, e) {
+    alert(id);
+  }
+
+  updateRow(id, e) {
+    alert(id);
   }
 
   render() {
@@ -39,7 +47,11 @@ class Form extends React.Component {
           type="submit"
           value={this.props.name}
           onClick={this.handleClick}
-        />
+        />{" "}
+        <button onClick={e => this.deleteRow("54616526", e)}>Delete Row</button>{" "}
+        <button onClick={this.updateRow.bind(this, "gdgdfgfdgfdg")}>
+          Update Row
+        </button>
       </div>
     );
   }
