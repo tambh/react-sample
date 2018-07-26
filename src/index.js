@@ -98,7 +98,7 @@ class Login extends React.Component {
 
 class UserList extends React.Component {
   users = ["Thomas", "Jonson", "Alice"];
-  listItem = this.users.map(user => <li>{user}</li>);
+  listItem = this.users.map((user, index) => <li key={index}>{user}</li>);
   render() {
     return (
       <div>
