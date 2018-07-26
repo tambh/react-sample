@@ -96,16 +96,38 @@ class Login extends React.Component {
   }
 }
 
-class Welcome extends React.Component {
+class UserList extends React.Component {
+  users = ["Thomas", "Jonson", "Alice"];
+  listItem = this.users.map(user => <li>{user}</li>);
   render() {
     return (
       <div>
+        <h3>User List</h3>
+        <ul>{this.listItem}</ul>
+      </div>
+    );
+  }
+}
+
+class Welcome extends React.Component {
+  checkLogin() {
+    var isLogin = this.props.isLogin;
+    if (isLogin) {
+      return <a href="#">LogOut</a>;
+    }
+    return <a href="#">LogIn</a>;
+  }
+  render() {
+    return (
+      <div>
+        {this.checkLogin()}
         <h1> Hello {this.props.name} </h1>
         <Login description="Login User" />
+        <UserList />
       </div>
     );
   }
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Welcome name="React" />, rootElement);
+ReactDOM.render(<Welcome name="React" isLogin={false} />, rootElement);
