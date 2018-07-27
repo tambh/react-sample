@@ -109,6 +109,41 @@ class UserList extends React.Component {
   }
 }
 
+class Contacts extends React.Component {
+  render() {
+    return (
+      <div>
+        <label>Contacts</label>
+      </div>
+    );
+  }
+}
+
+class Chat extends React.Component {
+  render() {
+    return (
+      <div>
+        <label>Chat</label>
+      </div>
+    );
+  }
+}
+
+class SplitPane extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="SplitPane">
+        <div className="SplitPane-left">{this.props.left}</div>
+        <div className="SplitPane-right">{this.props.right}</div>
+      </div>
+    );
+  }
+}
+
 class Welcome extends React.Component {
   checkLogin() {
     var isLogin = this.props.isLogin;
@@ -124,6 +159,7 @@ class Welcome extends React.Component {
         <h1> Hello {this.props.name} </h1>
         <Login description="Login User" />
         <UserList />
+        <SplitPane left={<Contacts />} right={<Chat />} />
       </div>
     );
   }
