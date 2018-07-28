@@ -144,6 +144,34 @@ class SplitPane extends React.Component {
   }
 }
 
+class FancyBorder extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className={"FancyBorder FancyBorder-" + this.props.color}>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+class Dialog extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <FancyBorder color="blue">
+        <h1 className="Dialog-title">{this.props.title}</h1>
+        <p className="Dialog-message">{this.props.message}</p>
+      </FancyBorder>
+    );
+  }
+}
+
 class Welcome extends React.Component {
   checkLogin() {
     var isLogin = this.props.isLogin;
@@ -160,6 +188,10 @@ class Welcome extends React.Component {
         <Login description="Login User" />
         <UserList />
         <SplitPane left={<Contacts />} right={<Chat />} />
+        <Dialog
+          title="Welcome"
+          message="Thank you for visiting our spacecraft!"
+        />
       </div>
     );
   }
